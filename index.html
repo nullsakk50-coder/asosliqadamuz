@@ -1,142 +1,26 @@
 <!DOCTYPE html>
-<html lang="ru">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Махсуджан — AI видео и создание контента</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap">
-<style>
-:root{--bg:#110d09;--bg2:#17110c;--ink:#efe6d2;--mut:#b8a98f;--card:#1b140e;--ac:#c9a15a;--line:#2a2018;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-*,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:80px;height:auto}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.7 Manrope,system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
-a{color:inherit}
-.w{max-width:1040px;margin:0 auto;padding:0 20px}
-header{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
-.bar{display:flex;align-items:center;gap:16px;height:64px}
-.logo,h1,h2,h3,.pr,.stats b{font-family:"Times New Roman",Times,Tinos,serif}
-.logo{font-weight:700;font-size:20px;text-decoration:none;margin-right:auto}
-.logo i{color:var(--ac);font-style:normal}
-nav{display:flex;gap:30px}
-nav a{text-decoration:none;font-size:15px;color:var(--mut)}
-nav a:hover{color:var(--ink)}
-.lang{display:flex;border:1px solid var(--line);border-radius:2px;margin-left:auto}
-.lang button{border:0;background:none;color:var(--mut);font:600 12px Manrope,sans-serif;padding:8px 10px;cursor:pointer}
-.lang button[aria-pressed=true]{background:var(--ac);color:#17110c}
-.lang button:focus-visible,.btn:focus-visible,summary:focus-visible{outline:2px solid var(--ac);outline-offset:3px}
-.btn{display:inline-block;background:var(--ac);color:#17110c;text-decoration:none;font-weight:600;padding:16px 30px;border-radius:2px;box-shadow:0 8px 26px rgba(201,161,90,.22)}
-.btn.o{background:var(--bg);color:var(--ink);border:1px solid var(--line);box-shadow:none}
-.hb{background:none;color:var(--ac);border:1px solid var(--ac);box-shadow:none;padding:10px 20px;font-size:14px;font-weight:500}
-.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;padding:96px 20px 72px;background:radial-gradient(520px 380px at 8% 6%,rgba(201,161,90,.12),transparent 70%)}
-.tag{display:block;font-weight:500;font-size:15px;color:var(--ac);margin-bottom:22px}
-h1{font-size:clamp(34px,5.4vw,58px);line-height:1.15;font-weight:700;margin:0 0 28px;max-width:10.5em}
-.hero p{color:var(--mut);max-width:30em;margin:0 0 36px}
-.cta{display:flex;gap:14px;flex-wrap:wrap}
-.hp{display:flex;justify-content:center}
-.av{width:min(340px,70vw);aspect-ratio:1;object-fit:cover;border-radius:50%;border:6px solid transparent;background:linear-gradient(var(--bg),var(--bg)) padding-box,linear-gradient(135deg,#e0bd7a,#7a5c2c) border-box}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:56px;border-top:1px solid var(--line);padding-top:28px}
-.stats b{display:block;font-size:clamp(28px,4.4vw,40px);line-height:1.1;color:var(--ac)}
-.stats span{color:var(--mut);font-size:14px}
-section{padding:80px 0;border-top:1px solid var(--line)}
-.ey{display:block;color:var(--ac);font-weight:600;font-size:14px;margin-bottom:12px}
-h2{font-size:clamp(26px,4vw,36px);line-height:1.2;margin:0 0 12px;font-weight:700}
-.sub{color:var(--mut);margin:0 0 36px;max-width:38em}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:26px}
-.card h3{margin:0 0 8px;font-size:20px}
-.card p{margin:0 0 16px;color:var(--mut);font-size:15px}
-.pr{font-weight:700;font-size:26px;color:var(--ac)}
-.g{aspect-ratio:4/3;border:1px solid var(--line);border-radius:4px;display:flex;align-items:flex-end;padding:18px;font-family:"Times New Roman",Times,serif;font-weight:700;font-size:20px}
-.g1{background:linear-gradient(135deg,#2a1d0e,#5e4320)}.g2{background:linear-gradient(135deg,#1b140e,#4a3418)}.g3{background:linear-gradient(135deg,#33250f,#6b4d22)}.g4{background:linear-gradient(135deg,#1f160c,#503a1b)}
-#about{background:var(--bg2)}
-.abg{display:grid;grid-template-columns:minmax(0,386px) 1fr;gap:56px;align-items:center}
-.abi{width:100%;aspect-ratio:1;object-fit:cover;border:1px solid var(--line);border-radius:4px}
-.abg p{color:var(--mut);max-width:40em;margin:0 0 14px}
-q{quotes:none;display:block;margin-bottom:16px;color:var(--mut)}
-.who{font-weight:700;font-size:14px}.who span{color:var(--mut);font-weight:400}
-.who span:first-child{margin-right:8px}
-details{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:18px 22px;margin-bottom:10px}
-summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px}
-summary::after{content:"+";color:var(--ac);font-size:22px;line-height:1}
-details[open] summary::after{content:"–"}
-details p{margin:10px 0 0;color:var(--mut)}
-.ct{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:56px 28px;text-align:center}
-.ct p{color:var(--mut);max-width:30em;margin:0 auto 28px}
-.ct .cta{justify-content:center}
-footer{padding:28px 0;color:var(--mut);font-size:14px;text-align:center;border-top:1px solid var(--line)}
-@media(max-width:760px){nav{display:none}.stats{grid-template-columns:1fr}.hero{grid-template-columns:1fr;padding-top:48px}.hp{order:-1}.abg{grid-template-columns:1fr;gap:28px}section{padding:56px 0}}
-</style>
-</head>
-<body>
-<header><div class="w bar">
-<a class="logo" href="#top"><span data-t="54">Махсуджан</span><i>.</i></a>
-<nav><a href="#services" data-t="0"></a><a href="#works" data-t="1"></a><a href="#about" data-t="2"></a><a href="#faq" data-t="3"></a><a href="#contacts" data-t="4"></a></nav>
-<div class="lang" role="group" aria-label="Language"><button data-l="ru">RU</button><button data-l="uz">UZ</button><button data-l="kk">KZ</button><button data-l="en">EN</button></div>
-<a class="btn hb" href="#contacts" data-t="5"></a>
-</div></header>
-<main id="top">
-<div class="w hero"><div class="ht">
-<span class="tag" data-t="6"></span>
-<h1 data-t="7"></h1>
-<p data-t="8"></p>
-<div class="cta"><a class="btn" href="#contacts" data-t="9"></a><a class="btn o" href="#works" data-t="10"></a></div>
-<div class="stats"><div><b>120+</b><span data-t="11"></span></div><div><b>48</b><span data-t="12"></span></div><div><b>4</b><span data-t="13"></span></div></div>
-</div><div class="hp"><img class="av" src="photo.jpg" alt="Махсуджан" width="340" height="340"></div></div>
-<section id="services"><div class="w">
-<span class="ey" data-t="0"></span><h2 data-t="14"></h2><p class="sub" data-t="15"></p>
-<div class="grid">
-<div class="card"><h3 data-t="16"></h3><p data-t="17"></p><div class="pr">100 <span class="c"></span></div></div>
-<div class="card"><h3 data-t="18"></h3><p data-t="19"></p><div class="pr">500 <span class="c"></span></div></div>
-<div class="card"><h3 data-t="20"></h3><p data-t="21"></p><div class="pr">2 000 <span class="c"></span></div></div>
-<div class="card"><h3 data-t="22"></h3><p data-t="23"></p><div class="pr">5 000 <span class="c"></span></div></div>
-<div class="card"><h3 data-t="24"></h3><p data-t="25"></p><div class="pr">50 000 <span class="c"></span></div></div>
-<div class="card"><h3 data-t="26"></h3><p data-t="27"></p><div class="pr">10 000 <span class="c"></span></div></div>
-</div></div></section>
-<section id="works"><div class="w">
-<span class="ey" data-t="1"></span><h2 data-t="28"></h2><p class="sub" data-t="29"></p>
-<div class="grid"><div class="g g1" data-t="56"></div><div class="g g2" data-t="57"></div><div class="g g3" data-t="58"></div><div class="g g4" data-t="59"></div></div>
-</div></section>
-<section id="about"><div class="w abg"><img class="abi" src="photo.jpg" alt="Махсуджан" width="386" height="405"><div><span class="ey" data-t="2"></span><h2 data-t="30"></h2><p data-t="31"></p><p data-t="32"></p></div></div></section>
-<section><div class="w">
-<h2 data-t="33"></h2><br>
-<div class="grid">
-<div class="card"><q data-t="34"></q><div class="who"><span style="color:var(--ink);font-weight:700" data-t="60"></span><span data-t="35"></span></div></div>
-<div class="card"><q data-t="36"></q><div class="who"><span style="color:var(--ink);font-weight:700" data-t="61"></span><span data-t="37"></span></div></div>
-<div class="card"><q data-t="38"></q><div class="who"><span style="color:var(--ink);font-weight:700" data-t="62"></span><span data-t="39"></span></div></div>
-</div></div></section>
-<section id="faq"><div class="w">
-<span class="ey" data-t="3"></span><h2 data-t="40"></h2><br>
-<details><summary data-t="41"></summary><p data-t="42"></p></details>
-<details><summary data-t="43"></summary><p data-t="44"></p></details>
-<details><summary data-t="45"></summary><p data-t="46"></p></details>
-<details><summary data-t="47"></summary><p data-t="48"></p></details>
-<details><summary data-t="49"></summary><p data-t="50"></p></details>
-</div></section>
-<section id="contacts"><div class="w"><div class="ct">
-<h2 data-t="51"></h2><p data-t="52"></p>
-<div class="cta"><a class="btn" href="https://instagram.com/osnowa.bissnesa001" target="_blank" rel="noopener">Instagram · osnowa.bissnesa001</a><a class="btn o" href="https://tiktok.com/@arda0000001" target="_blank" rel="noopener">TikTok · @arda0000001</a></div>
-</div></div></section>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Создание AI-видео и сайтов в Казахстане | Махсуджан</title>
+<meta name="description" content="Создание AI-контента, сайтов, продвижение каналов и анализ Instagram. 120+ проданных видео, 3 года опыта. Работаю по всему Казахстану онлайн.">
+<link rel="canonical" href="https://clever-sable-550785.netlify.app/">
+<link rel="alternate" hreflang="ru" href="https://clever-sable-550785.netlify.app/">
+<link rel="alternate" hreflang="uz" href="https://clever-sable-550785.netlify.app/uz/">
+<link rel="alternate" hreflang="kk" href="https://clever-sable-550785.netlify.app/kk/">
+<link rel="alternate" hreflang="en" href="https://clever-sable-550785.netlify.app/en/">
+<link rel="alternate" hreflang="x-default" href="https://clever-sable-550785.netlify.app/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Махсуджан"><meta property="og:title" content="Создание AI-видео и сайтов в Казахстане | Махсуджан"><meta property="og:description" content="Создание AI-контента, сайтов, продвижение каналов и анализ Instagram. 120+ проданных видео, 3 года опыта. Работаю по всему Казахстану онлайн."><meta property="og:url" content="https://clever-sable-550785.netlify.app/"><meta property="og:locale" content="ru_RU"><meta property="og:image" content="https://clever-sable-550785.netlify.app/images/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Студия Махсуджана: создание AI-видео и контента для бизнеса">
+<meta name="twitter:card" content="summary_large_image"><meta name="theme-color" content="#110d09">
+<link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap"><link rel="stylesheet" href="css/style.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Махсуджан", "jobTitle": "Студия AI видео и контента", "url": "https://clever-sable-550785.netlify.app/", "image": "https://clever-sable-550785.netlify.app/images/avatar.jpg", "telephone": "+77717957425", "email": "nullsakk@gmail.com", "address": {"@type": "PostalAddress", "addressLocality": "Shymkent", "addressCountry": "KZ"}, "sameAs": ["https://instagram.com/osnowa.bissnesa", "https://t.me/DICTOR10_10"]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "Махсуджан — Студия AI видео и контента", "image": "https://clever-sable-550785.netlify.app/images/og.jpg", "url": "https://clever-sable-550785.netlify.app/", "telephone": "+77717957425", "email": "nullsakk@gmail.com", "address": {"@type": "PostalAddress", "addressLocality": "Shymkent", "addressCountry": "KZ"}, "areaServed": {"@type": "Country", "name": "Kazakhstan"}, "openingHoursSpecification": {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], "opens": "08:00", "closes": "23:59"}, "sameAs": ["https://instagram.com/osnowa.bissnesa", "https://t.me/DICTOR10_10"]}</script>
+</head><body>
+<header><div class="w bar"><a class="logo" href="index.html">Махсуджан<i>.</i></a><nav aria-label="Menu"><a href="index.html" aria-current="page">Главная</a><a href="about.html">Обо мне</a><a href="services.html">Услуги</a><a href="results.html">Результаты</a><a href="faq.html">Вопросы</a><a href="contacts.html">Контакты</a></nav><div class="lang" role="group" aria-label="Language"><a href="index.html" hreflang="ru" lang="ru" aria-current="page">RU</a><a href="uz/index.html" hreflang="uz" lang="uz">UZ</a><a href="kk/index.html" hreflang="kk" lang="kk">KZ</a><a href="en/index.html" hreflang="en" lang="en">EN</a></div><a class="btn hb" href="contacts.html">Связаться</a></div></header>
+<main>
+<div class="w hero"><div class="ht"><span class="tag">Студия AI видео и контента</span><h1>Усиливаю голос вашего бренда с помощью искусственного интеллекта</h1><p>Я Махсуджан — создаю для бизнеса рекламные видео, контент для соцсетей и презентационные ролики с помощью ИИ. От идеи до готового видео — быстро и качественно.</p><div class="cta"><a class="btn " href="contacts.html">Оставить заявку</a><a class="btn o" href="results.html">Смотреть работы</a></div><div class="stats"><div><b>3</b><span>лет опыта</span></div><div><b>120+</b><span>проданных видео</span></div><div><b>100+</b><span>клиентов</span></div></div></div><div class="hp"><img class="av" src="images/avatar.jpg" alt="Махсуджан — специалист по созданию AI-видео и сайтов" width="420" height="441" fetchpriority="high"></div></div>
+<section><div class="w"><h2>От идеи до готового видео</h2><p class="sub">Каждый проект подстраивается под тон вашего бренда. Стоимость — индивидуально, срок — не больше 3 дней.</p><div class="grid"><div class="card"><h3>Создание AI-видео</h3><p>Рекламные ролики, контент для соцсетей и презентации с помощью искусственного интеллекта.</p><div class="pr">Индивидуально</div></div><div class="card"><h3>Создание сайтов</h3><p>Современные адаптивные сайты для вашего бизнеса — быстро и недорого.</p><div class="pr">Индивидуально</div></div><div class="card"><h3>Ведение канала</h3><p>Контент-план, публикации и развитие вашего канала или аккаунта.</p><div class="pr">Индивидуально</div></div><div class="card"><h3>Продвижение каналов</h3><p>Анализ Instagram, таргетированная реклама и привлечение клиентов.</p><div class="pr">Индивидуально</div></div><div class="card"><h3>Создание бизнеса</h3><p>Помогу запустить бизнес на AI-контенте — от идеи до первых продаж.</p><div class="pr">Индивидуально</div></div></div></div></section>
+<section><div class="w abg"><img class="stu" src="images/studio.jpg" alt="Студия Махсуджана: создание AI-видео и контента для бизнеса" width="720" height="1280" loading="lazy" decoding="async"><div><h2>Как я работаю</h2><p>Студия, камера и AI-монтаж: снимаю, создаю и довожу видео до результата, который приводит клиентов.</p></div></div></section>
+<section><div class="w"><div class="ct"><h2>Готовы начать свой проект?</h2><p>Позвоните или напишите в Telegram — отвечу быстро.</p><div class="cta"><a class="btn " href="tel:+77717957425">Позвонить</a><a class="btn o" href="https://t.me/DICTOR10_10" target="_blank" rel="noopener">Написать в Telegram</a><a class="btn o" href="https://wa.me/77717957425" target="_blank" rel="noopener">WhatsApp</a></div></div></div></section>
 </main>
-<footer><div class="w" data-t="53"></div></footer>
-<script>
-var L={
-ru:["Услуги","Работы","Обо мне","Вопросы","Контакты","Связаться","Студия AI видео и контента","Усиливаю голос вашего бренда с помощью искусственного интеллекта","Я Махсуджан — создаю для бизнеса рекламные видео, контент для соцсетей и презентационные ролики с помощью ИИ. От идеи до готового видео — быстро и качественно.","Оставить заявку","Смотреть работы","готовых видео-проектов","часов — средний срок выполнения","направления: реклама, контент, презентация, курс","От идеи до готового видео","Каждый проект адаптируется под тон вашего бренда. Цена зависит от длительности и сложности видео.","Фото","Обработка и создание фото с помощью AI","Видео — 10 секунд","Короткий ролик для сторис или reels","Видео — 30 секунд","Рекламный или контентный ролик среднего формата","Видео — 1 минута","Полноценный ролик для рекламы или презентации","Создание сайта","Одностраничный сайт под ваш бизнес, как этот","Курс по бизнесу","Обучение, как запустить и вести бизнес на AI-контенте","Галерея работ","Примеры последних проектов для разных сфер. Реальные видео-примеры можно посмотреть в моём Instagram.","Привет, я Махсуджан","Создаю видео и контент для бизнеса с помощью технологий искусственного интеллекта. Моя цель — найти уникальный голос для каждого бренда и донести его до клиентов через быстрое и качественное видео.","От рекламных роликов до контент-планов для соцсетей — мы вместе пройдём путь от идеи до готового результата. В каждом проекте я уделяю внимание точности, скорости и качеству.","Работали с ним — увидели результат","Видео было готово очень быстро, а качество превзошло ожидания. Клиентов стало больше.","Владелец кафе","Контент-план сработал чётко и организованно. Наш Instagram ожил.","Основательница онлайн-магазина","Видеосериал для моего курса сделан очень профессионально, число учеников выросло.","Онлайн-наставник","Часто задаваемые вопросы","Сколько времени занимает подготовка видео?","Обычно 24–48 часов, срок может меняться в зависимости от сложности проекта.","Насколько качественным получается видео, созданное с помощью AI?","Инструменты искусственного интеллекта используются вместе с профессиональным монтажом и дизайном — результат на уровне готовой рекламы.","Какие способы оплаты доступны?","Наличные, перевод на карту или оплата по этапам проекта — договоримся через Instagram.","У меня есть своя идея, вы её реализуете?","Конечно. Выслушаю вашу идею и превращу её в сценарий и видеоформат.","На каких языках вы готовите видео?","Видео и субтитры можно подготовить на узбекском, русском и английском языках.","Готовы начать свой проект?","Напишите в Instagram или TikTok — отвечу в течение 24 часов.","© 2026 Махсуджан — студия AI видео и контента","Махсуджан","тг","Реклама","Контент","Презентация","Курс","Азиз Рахимов","Нилуфар Каримова","Шерзод Юсупов"],
-uz:["Xizmatlar","Ishlar","Men haqimda","Savollar","Aloqa","Bogʻlanish","AI video va kontent studiyasi","Brendingiz ovozini sunʼiy intellekt yordamida kuchaytiraman","Men Maxsujonman — biznes uchun reklama videolari, ijtimoiy tarmoqlar kontenti va taqdimot roliklarini AI yordamida yarataman. Gʻoyadan tayyor videogacha — tez va sifatli.","Ariza qoldirish","Ishlarni koʻrish","tayyor video-loyiha","soat — oʻrtacha bajarilish muddati","yoʻnalish: reklama, kontent, taqdimot, kurs","Gʻoyadan tayyor videogacha","Har bir loyiha brendingiz ohangiga moslashtiriladi. Narx videoning davomiyligi va murakkabligiga bogʻliq.","Foto","AI yordamida fotolarni qayta ishlash va yaratish","Video — 10 soniya","Storis yoki reels uchun qisqa rolik","Video — 30 soniya","Oʻrta formatdagi reklama yoki kontent rolik","Video — 1 daqiqa","Reklama yoki taqdimot uchun toʻliq rolik","Sayt yaratish","Biznesingiz uchun bir sahifali sayt — xuddi mana shunday","Biznes kursi","AI-kontent asosida biznesni qanday boshlash va yuritishni oʻrgatish","Ishlar galereyasi","Turli sohalar uchun bajarilgan soʻnggi loyihalar namunalari. Haqiqiy video namunalarni Instagramimda koʻrishingiz mumkin.","Salom, men Maxsujonman","Biznes uchun video va kontentni sunʼiy intellekt texnologiyalari yordamida yarataman. Maqsadim — har bir brend uchun betakror ovoz topish va uni tez hamda sifatli video orqali mijozlarga yetkazish.","Reklama roliklaridan tortib ijtimoiy tarmoqlar uchun kontent-rejagacha — gʻoyadan tayyor natijagacha birga yoʻl bosamiz. Har bir loyihada aniqlik, tezlik va sifatga eʼtibor beraman.","U bilan ishlashdi — natijani koʻrishdi","Video juda tez tayyor boʻldi, sifati kutganimdan ham yaxshi chiqdi. Mijozlar koʻpaydi.","Kafe egasi","Kontent-reja aniq va tartibli ishladi. Instagramimiz jonlandi.","Onlayn doʻkon asoschisi","Kursim uchun videoserial juda professional qilingan, oʻquvchilar soni oshdi.","Onlayn ustoz","Tez-tez beriladigan savollar","Videoni tayyorlash qancha vaqt oladi?","Odatda 24–48 soat, murakkablikka qarab muddat oʻzgarishi mumkin.","AI yordamida yaratilgan video qanchalik sifatli?","Sunʼiy intellekt vositalari professional montaj va dizayn bilan birga ishlatiladi — natija tayyor reklama darajasida.","Qanday toʻlov usullari bor?","Naqd pul, kartaga oʻtkazma yoki loyiha bosqichlari boʻyicha toʻlov — Instagram orqali kelishamiz.","Oʻz gʻoyam bor, uni amalga oshirasizmi?","Albatta. Gʻoyangizni eshitib, uni ssenariy va video formatga aylantiraman.","Videolarni qaysi tillarda tayyorlaysiz?","Video va subtitrlarni oʻzbek, rus va ingliz tillarida tayyorlash mumkin.","Loyihangizni boshlashga tayyormisiz?","Instagram yoki TikTok’da yozing — 24 soat ichida javob beraman.","© 2026 Maxsujon — AI video va kontent studiyasi","Maxsujon","tg","Reklama","Kontent","Taqdimot","Kurs","Aziz Rahimov","Nilufar Karimova","Sherzod Yusupov"],
-kk:["Қызметтер","Жұмыстар","Мен туралы","Сұрақтар","Байланыс","Хабарласу","AI бейне және контент студиясы","Жасанды интеллект арқылы брендіңіздің дауысын күшейтемін","Мен Махсуджанмын — бизнеске арналған жарнамалық бейнелерді, әлеуметтік желіге контентті және презентациялық роликтерді ЖИ көмегімен жасаймын. Идеядан дайын бейнеге дейін — жылдам әрі сапалы.","Өтінім қалдыру","Жұмыстарды көру","дайын бейне-жоба","сағат — орташа орындау мерзімі","бағыт: жарнама, контент, презентация, курс","Идеядан дайын бейнеге дейін","Әр жоба брендіңіздің тонына бейімделеді. Баға бейненің ұзақтығы мен күрделілігіне байланысты.","Фото","AI көмегімен фотоны өңдеу және жасау","Бейне — 10 секунд","Сторис немесе reels үшін қысқа ролик","Бейне — 30 секунд","Орта форматтағы жарнамалық немесе контент ролигі","Бейне — 1 минут","Жарнама немесе презентацияға арналған толыққанды ролик","Сайт жасау","Бизнесіңізге арналған бір беттік сайт — дәл осындай","Бизнес курсы","AI-контент арқылы бизнесті қалай бастап, жүргізу керектігін үйрету","Жұмыстар галереясы","Әртүрлі салаларға орындалған соңғы жобалардан үлгілер. Нақты бейне үлгілерді менің Instagram-нан көре аласыз.","Сәлем, мен Махсуджанмын","Бизнеске арналған бейне мен контентті жасанды интеллект технологиялары арқылы жасаймын. Мақсатым — әр бренд үшін бірегей дауыс тауып, оны жылдам әрі сапалы бейне арқылы клиенттерге жеткізу.","Жарнамалық роликтерден әлеуметтік желіге арналған контент-жоспарға дейін — идеядан дайын нәтижеге дейін бірге жүреміз. Әр жобада дәлдікке, жылдамдыққа және сапаға көңіл бөлемін.","Онымен жұмыс істеді — нәтижесін көрді","Бейне өте тез дайын болды, сапасы күткенімнен де жоғары шықты. Клиенттер көбейді.","Кафе иесі","Контент-жоспар нақты әрі ұйымшыл жұмыс істеді. Instagram-ымыз жандана түсті.","Онлайн-дүкен негізін қалаушы","Курсыма арналған бейнесериал өте кәсіби жасалған, оқушылар саны өсті.","Онлайн-тәлімгер","Жиі қойылатын сұрақтар","Бейнені дайындауға қанша уақыт кетеді?","Әдетте 24–48 сағат, мерзім жобаның күрделілігіне қарай өзгеруі мүмкін.","AI арқылы жасалған бейненің сапасы қандай?","Жасанды интеллект құралдары кәсіби монтаж және дизайнмен бірге қолданылады — нәтиже дайын жарнама деңгейінде.","Қандай төлем тәсілдері бар?","Қолма-қол ақша, картаға аударым немесе жоба кезеңдері бойынша төлем — Instagram арқылы келісеміз.","Менің өз идеям бар, оны жүзеге асырасыз ба?","Әрине. Идеяңызды тыңдап, оны сценарий мен бейне форматына айналдырамын.","Бейнелерді қандай тілдерде дайындайсыз?","Бейне мен субтитрлерді өзбек, орыс және ағылшын тілдерінде дайындауға болады.","Жобаңызды бастауға дайынсыз ба?","Instagram немесе TikTok-қа жазыңыз — 24 сағат ішінде жауап беремін.","© 2026 Махсуджан — AI бейне және контент студиясы","Махсуджан","тг","Жарнама","Контент","Презентация","Курс","Азиз Рахимов","Нилуфар Каримова","Шерзод Юсупов"],
-en:["Services","Work","About","FAQ","Contact","Get in touch","AI video & content studio","I amplify your brand’s voice with artificial intelligence","I’m Mahsujan — I create ad videos, social media content and presentation clips for businesses using AI. From idea to finished video — fast and high quality.","Request a project","See my work","finished video projects","hours — average turnaround","directions: ads, content, presentations, courses","From idea to finished video","Every project is tailored to your brand’s tone. Price depends on the video’s length and complexity.","Photo","AI photo editing and creation","Video — 10 seconds","Short clip for stories or reels","Video — 30 seconds","Mid-length ad or content clip","Video — 1 minute","Full-length clip for ads or presentations","Website creation","A one-page website for your business, just like this one","Business course","Learn how to launch and run a business on AI content","Work gallery","Examples of recent projects for different industries. You can see real video samples on my Instagram.","Hi, I’m Mahsujan","I create video and content for businesses using artificial intelligence. My goal is to find a unique voice for every brand and deliver it to customers through fast, high-quality video.","From ad clips to social media content plans — we’ll go from idea to finished result together. In every project I focus on precision, speed and quality.","They worked with him — and saw results","The video was ready very fast and the quality exceeded my expectations. We got more customers.","Café owner","The content plan worked clearly and in an organized way. Our Instagram came alive.","Online store founder","The video series for my course was made very professionally, and my student numbers grew.","Online mentor","Frequently asked questions","How long does it take to make a video?","Usually 24–48 hours; timing may vary with the project’s complexity.","How good is AI-generated video?","AI tools are combined with professional editing and design — the result is at the level of finished advertising.","What payment methods are available?","Cash, card transfer or payment by project stage — we’ll agree via Instagram.","I have my own idea. Will you make it happen?","Of course. I’ll listen to your idea and turn it into a script and video format.","What languages do you make videos in?","Video and subtitles can be prepared in Uzbek, Russian and English.","Ready to start your project?","Message me on Instagram or TikTok — I’ll reply within 24 hours.","© 2026 Mahsujan — AI video & content studio","Mahsujan","tg","Ads","Content","Presentation","Course","Aziz Rakhimov","Nilufar Karimova","Sherzod Yusupov"]};
-var H={ru:"ru",uz:"uz",kk:"kk",en:"en"};
-function setL(l){
-var d=L[l];if(!d)return;
-document.querySelectorAll("[data-t]").forEach(function(e){e.textContent=d[e.getAttribute("data-t")]});
-document.querySelectorAll(".c").forEach(function(e){e.textContent=d[55]});
-document.querySelectorAll(".lang button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.l===l)});
-document.documentElement.lang=H[l];
-document.title=d[54]+" — "+d[6];
-try{localStorage.setItem("lang",l)}catch(e){}
-}
-document.querySelectorAll(".lang button").forEach(function(b){b.addEventListener("click",function(){setL(b.dataset.l)})});
-var s="ru";try{s=localStorage.getItem("lang")||"ru"}catch(e){}
-setL(s);
-</script>
-</body>
-</html>
+<footer><div class="w"><p>© 2026 Махсуджан — студия AI видео и контента</p><p><a href="tel:+77717957425">+7 771 795 74 25</a> · <a href="https://t.me/DICTOR10_10" target="_blank" rel="noopener">Telegram</a> · <a href="https://instagram.com/osnowa.bissnesa" target="_blank" rel="noopener">Instagram</a></p></div></footer>
+</body></html>

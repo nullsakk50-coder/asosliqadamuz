@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://clever-sable-550785.netlify.app/sitemap.xml
